@@ -7,7 +7,7 @@ Ce projet a pour but de présenter mes compétences, mon parcours scolaire en Ba
 
 ## 🚀 À propos
 Je suis actuellement étudiant au Lycée Louise Michel (Ruffec) et passionné par l'informatique et la sécurité des systèmes. 
-J'ai conçu ce site de A à Z pour rechercher un stage et montrer ma capacité à créer des interfaces web modernes.
+J'ai conçu ce site pour rechercher un stage et montrer ma capacité à créer des site/interface web .
 
 **Objectif :** Trouver un stage en informatique / cybersécurité.
 
@@ -41,4 +41,5 @@ N'hésitez pas à explorer le code ou à me contacter pour une opportunité de s
 ---
 
 *by loghan Morisson.*
+
 
