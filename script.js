@@ -34,3 +34,19 @@ function typeEffect() {
 
 // Lancer l'animation au chargement
 document.addEventListener('DOMContentLoaded', typeEffect);
+
+// --- GESTION DU MENU MOBILE ---
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    // Quand on clique, on ajoute ou enlève la classe "active"
+    navLinks.classList.toggle('active');
+});
+
+// Optionnel : Fermer le menu quand on clique sur un lien
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
