@@ -36,8 +36,9 @@ Si vous souhaitez voir le code tourner sur votre machine :
 N'hésitez pas à explorer le code ou à me contacter pour une opportunité de stage !
 
 * **Email :** [moris.loghan@gmail.com](mailto:moris.loghan@gmail.com)
-* **GitHub :** [Ton lien GitHub]
+* **GitHub :** [https://github.com/loghanmrsn]
 
 ---
 
 *by loghan Morisson.*
+
