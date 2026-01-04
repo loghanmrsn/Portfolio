@@ -28,8 +28,7 @@ Si vous souhaitez voir le code tourner sur votre machine :
 
 1.  Clonez le dépôt :
     ```bash
-    git clone [https://github.com/VOTRE-PSEUDO/portfolio.git](https://github.com/VOTRE-PSEUDO/portfolio.git)
-    ```
+    git clone [[https://loghanmrsn.github.io/Portfolio/]](https://loghanmrsn.github.io/Portfolio/)
 2.  Ouvrez le fichier `index.html` dans votre navigateur.
 
 ## 📬 Me contacter
@@ -41,5 +40,6 @@ N'hésitez pas à explorer le code ou à me contacter pour une opportunité de s
 ---
 
 *by loghan Morisson.*
+
 
 
