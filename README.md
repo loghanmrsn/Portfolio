@@ -33,7 +33,6 @@ Si vous souhaitez voir mon portfolio tourner sur votre machine :
 2.  Ouvrez le fichier `index.html` dans votre navigateur.
 
 
-
 # 🔒 Générateur de Mots de Passe
 
 ## 📋 Fonctionnalités
