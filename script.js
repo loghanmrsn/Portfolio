@@ -1,52 +1,108 @@
-// Texte à taper automatiquement
+// =============================================
+// EFFET DE FRAPPE
+// =============================================
 const textElement = document.querySelector('.typing-text');
-const words = ["Cybersécurité", "Développement Web"];
+const words = ["Cybersécurité", "Développement Web", "BAC Pro CIEL"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 
 function typeEffect() {
     const currentWord = words[wordIndex];
-    
+
     if (isDeleting) {
-        // Effacer
         textElement.textContent = currentWord.substring(0, charIndex--);
     } else {
-        // Écrire
         textElement.textContent = currentWord.substring(0, charIndex++);
     }
 
-    let typeSpeed = isDeleting ? 100 : 200;
+    let typeSpeed = isDeleting ? 70 : 130;
 
-    if (!isDeleting && charIndex === currentWord.length) {
-        // Pause à la fin du mot
+    if (!isDeleting && charIndex === currentWord.length + 1) {
         isDeleting = true;
-        typeSpeed = 2000; 
+        typeSpeed = 1800;
     } else if (isDeleting && charIndex === 0) {
-        // Passer au mot suivant
         isDeleting = false;
         wordIndex = (wordIndex + 1) % words.length;
-        typeSpeed = 500;
+        typeSpeed = 400;
     }
 
     setTimeout(typeEffect, typeSpeed);
 }
 
-// Lancer l'animation au chargement
 document.addEventListener('DOMContentLoaded', typeEffect);
 
-// --- GESTION DU MENU MOBILE ---
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
+// =============================================
+// NAVBAR SCROLL
+// =============================================
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+}, { passive: true });
+
+// =============================================
+// MENU MOBILE
+// =============================================
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
 
 hamburger.addEventListener('click', () => {
-    // Quand on clique, on ajoute ou enlève la classe "active"
+    hamburger.classList.toggle('open');
     navLinks.classList.toggle('active');
 });
 
-// Optionnel : Fermer le menu quand on clique sur un lien
-document.querySelectorAll('.nav-links a').forEach(link => {
+document.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
     link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
         navLinks.classList.remove('active');
     });
+});
+
+// =============================================
+// REVEAL AU SCROLL (Intersection Observer)
+// =============================================
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// =============================================
+// ANIMATION DES BARRES DE COMPÉTENCES
+// =============================================
+const skillFills = document.querySelectorAll('.skill-fill');
+
+const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const fill = entry.target;
+            const width = fill.getAttribute('data-width');
+            fill.style.width = width + '%';
+            skillObserver.unobserve(fill);
+        }
+    });
+}, { threshold: 0.5 });
+
+skillFills.forEach(fill => skillObserver.observe(fill));
+
+// =============================================
+// LANCEMENT DES ANIMATIONS HERO AU CHARGEMENT
+// =============================================
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+            setTimeout(() => el.classList.add('visible'), i * 120);
+        });
+    }, 100);
 });
