@@ -1,172 +1,6 @@
 'use strict';
-const translations = {
-  fr: {
-    navResults:"CTF",
-    generatorLive:"/ OUTIL EN LIGNE",
-    generatedPassword:"Mot de passe généré",
-    characterTypes:"Caractères à inclure",
-    uppercase:"Majuscules",
-    lowercase:"Minuscules",
-    numbers:"Chiffres",
-    symbols:"Symboles",
-    excludeAmbiguous:"Éviter les caractères ambigus (O, 0, o, I, l, 1, |)",
-    generatorPrivacy:"Généré sur cet appareil · rien n’est enregistré ni envoyé.",
-    noCharacters:"Choisis au moins un type de caractères.",
-    cryptoUnavailable:"La génération sécurisée n’est pas disponible dans ce navigateur.",
-    resultsLabel:"03 — CAPTURE THE FLAG",
-    resultsTitle:"CTF &amp; <em>résultats.</em>",
-    resultsIntro:"Explorer la cybersécurité par la pratique. Mes participations, classements et retours d’expérience trouveront leur place ici.",
-    resultsStatus:"À VENIR",
-    resultsEmptyTitle:"Le tableau s’écrit bientôt.",
-    resultsEmptyText:"Les résultats seront ajoutés après mes prochaines participations.",
-    resultsCaption:"Résultats des compétitions CTF",
-    resultDate:"Date",
-    resultRank:"Classement",
-    resultWriteup:"Compte rendu",
-    readWriteup:"Lire le compte rendu",
-    notProvided:"Non renseigné",
-    offline:'HORS LIGNE',
-    consoleScreenshot:'Aperçu de la bibliothèque et de l’enquête éducative de Console CIEL',
-    skip:'Aller au contenu',
-    navigation:'Navigation principale',
-    language:'Langue',
-    navAbout:'À propos',
-    navProjects:'Projets',
-    navContact:'Discutons',
-    heroEyebrow:'PORTFOLIO PERSONNEL — VOL. 01',
-    heroKicker:'Étudiant en informatique · Développeur',
-    profileLabel:'Profil Loghan',
-    profileRole:'17 ans · Étudiant en informatique · Développeur',
-    profileDescription:'Créer des logiciels. Explorer les systèmes.<br>Apprendre à travers des projets et des CTFs.',
-    heroBottom:'Des idées aux lignes de code.<br>Et tout ce qu’il reste à explorer.',
-    scroll:'DÉFILER POUR EXPLORER',
-    aboutLabel:'01 — DERRIÈRE L’ÉCRAN',
-    aboutTitle:'La curiosité<br>comme <em>moteur.</em>',
-    aboutLead:'Moi, c’est Loghan, 17 ans. Sur le web, its lizhy. J’aime comprendre comment les choses fonctionnent. Puis leur donner ma propre forme.',
-    aboutText:'Étudiant en informatique, je construis mes compétences en créant : des logiciels, des expériences web et de petits projets qui répondent à une idée simple. Les systèmes, Linux et la cybersécurité font aussi partie du terrain de jeu.',
-    discover:'Découvrir mes projets',
-    toolbox:'DANS MA BOÎTE À OUTILS',
-    projectsLabel:'02 — SÉLECTION DE PROJETS',
-    projectsEyebrow:'PENSER. CONSTRUIRE. AMÉLIORER.',
-    projectsTitle:'De l’idée<br>au <em>concret.</em>',
-    projectsIntro:'Deux projets, une même envie : créer des outils simples et comprendre ce qu’il y a derrière.',
-    consoleVisualLabel:'EXPLORATION / APPRENDRE EN JOUANT',
-    consoleCategory:'LOGICIEL / ENQUÊTE ÉDUCATIVE',
-    consoleTitle:'Console CIEL.',
-    consoleDescription:'Une enquête éducative et une bibliothèque de jeux, créées avec Godot. Explorer, résoudre des pannes et découvrir l’informatique en jouant, hors ligne.',
-    consoleTag:'Godot / Windows / Raspberry Pi',
-    consoleMore:'En savoir plus sur Console CIEL',
-    passwordVisualLabel:'PETIT OUTIL / GRANDE UTILITÉ',
-    copyPassword:'Copier le mot de passe',
-    length:'Longueur',
-    generate:'Générer un mot de passe',
-    passwordCategory:'WEB / OUTIL',
-    passwordTitle:'Simple. Et imprévisible.',
-    passwordDescription:'Un générateur de mots de passe avec une longueur et des caractères personnalisables. Un petit projet web, pensé pour être utile.',
-    openPassword:'Utiliser le générateur de mots de passe',
-    projectsFootnote:'Toujours une nouvelle idée dans un coin de la tête.',
-    approachLabel:'Ma démarche',
-    interludeLabel:'LE FIL CONDUCTEUR',
-    interludeTitle:'Toujours<br>en <em>mouvement.</em>',
-    interludeCaption:'Une idée. Un essai. Une nouvelle version.<br>C’est comme ça que j’avance.',
-    contactLabel:'04 — ET LA SUITE ?',
-    contactKicker:'Un projet, une question, ou simplement envie d’échanger ?',
-    contactTitle:'On en <em>parle ?</em>',
-    newTab:' (nouvel onglet)',
-    backTop:'Retour en haut',
-    footer:'FAIT AVEC CURIOSITÉ — © 2026',
-    close:'Fermer',
-    dialogTitle:'Apprendre en explorant.',
-    dialogText:'Console CIEL est une application Godot qui mêle enquête éducative et bibliothèque de jeux. On y explore des pièces, répare des pannes simulées et relève des défis de code, de réseau et de cybersécurité. L’application fonctionne hors ligne, au clavier ou à la manette, avec une progression sauvegardée localement. Des versions Windows et Raspberry Pi sont disponibles sur le dépôt.',
-    dialogLink:'Voir Console CIEL sur GitHub',
-    copied:'Mot de passe copié.',
-    copyError:'Copie indisponible. Sélectionne le mot de passe pour le copier.',
-    meta:'its lizhy · Loghan — Étudiant en informatique et développeur. Logiciels, web et exploration des systèmes.'
-  },
-  en: {
-    navResults:"CTF",
-    generatorLive:"/ LIVE TOOL",
-    generatedPassword:"Generated password",
-    characterTypes:"Character types",
-    uppercase:"Uppercase",
-    lowercase:"Lowercase",
-    numbers:"Numbers",
-    symbols:"Symbols",
-    excludeAmbiguous:"Avoid ambiguous characters (O, 0, o, I, l, 1, |)",
-    generatorPrivacy:"Generated on this device · nothing is stored or sent.",
-    noCharacters:"Choose at least one character type.",
-    cryptoUnavailable:"Secure generation is unavailable in this browser.",
-    resultsLabel:"03 — CAPTURE THE FLAG",
-    resultsTitle:"CTF &amp; <em>results.</em>",
-    resultsIntro:"Exploring cybersecurity through practice. My participation, rankings and write-ups will be collected here.",
-    resultsStatus:"COMING SOON",
-    resultsEmptyTitle:"The next flag is ahead.",
-    resultsEmptyText:"Results will be added after my next competitions.",
-    resultsCaption:"CTF competition results",
-    resultDate:"Date",
-    resultRank:"Ranking",
-    resultWriteup:"Write-up",
-    readWriteup:"Read write-up",
-    notProvided:"Not provided",
-    offline:'OFFLINE',
-    consoleScreenshot:'Preview of the Console CIEL library and educational adventure',
-    skip:'Skip to content',
-    navigation:'Main navigation',
-    language:'Language',
-    navAbout:'About',
-    navProjects:'Projects',
-    navContact:'Let’s talk',
-    heroEyebrow:'PERSONAL PORTFOLIO — VOL. 01',
-    heroKicker:'Computer science student · Developer',
-    profileLabel:'Loghan’s profile',
-    profileRole:'17 years old · Computer science student · Developer',
-    profileDescription:'Building software. Exploring systems.<br>Learning through real projects and CTFs.',
-    heroBottom:'From ideas to lines of code.<br>And everything still left to explore.',
-    scroll:'SCROLL TO EXPLORE',
-    aboutLabel:'01 — BEHIND THE SCREEN',
-    aboutTitle:'Driven by<br><em>curiosity.</em>',
-    aboutLead:'I’m Loghan, 17. Online, its lizhy. I like understanding how things work. Then giving them a shape of my own.',
-    aboutText:'As a computer science student, I build my skills by making things: software, web experiences and small projects that start with a simple idea. Systems, Linux and cybersecurity are part of the playground, too.',
-    discover:'Explore my projects',
-    toolbox:'IN MY TOOLBOX',
-    projectsLabel:'02 — SELECTED PROJECTS',
-    projectsEyebrow:'THINK. BUILD. IMPROVE.',
-    projectsTitle:'From idea<br>to <em>reality.</em>',
-    projectsIntro:'Two projects, one shared goal: building simple tools and understanding what makes them work.',
-    consoleVisualLabel:'EXPLORATION / LEARNING THROUGH PLAY',
-    consoleCategory:'SOFTWARE / EDUCATIONAL ADVENTURE',
-    consoleTitle:'Console CIEL.',
-    consoleDescription:'An educational adventure and game library, built with Godot. Explore, fix simulated faults and discover computing through play, entirely offline.',
-    consoleTag:'Godot / Windows / Raspberry Pi',
-    consoleMore:'Learn more about Console CIEL',
-    passwordVisualLabel:'SMALL TOOL / REAL PURPOSE',
-    copyPassword:'Copy password',
-    length:'Length',
-    generate:'Generate a password',
-    passwordCategory:'WEB / TOOL',
-    passwordTitle:'Simple. Unpredictable.',
-    passwordDescription:'A password generator with customizable length and character options. A small web project, built to be useful.',
-    openPassword:'Use the password generator',
-    projectsFootnote:'There’s always another idea in the back of my mind.',
-    approachLabel:'My approach',
-    interludeLabel:'THE COMMON THREAD',
-    interludeTitle:'Always<br>in <em>motion.</em>',
-    interludeCaption:'An idea. An attempt. A new version.<br>That’s how I move forward.',
-    contactLabel:'04 — WHAT’S NEXT?',
-    contactKicker:'A project, a question, or just feel like saying hello?',
-    contactTitle:'Let’s <em>talk.</em>',
-    newTab:' (new tab)',
-    backTop:'Back to top',
-    footer:'MADE WITH CURIOSITY — © 2026',
-    close:'Close',
-    dialogTitle:'Learning by exploring.',
-    dialogText:'Console CIEL is a Godot application combining an educational adventure and a game library. Explore rooms, repair simulated faults and tackle coding, networking and cybersecurity challenges. It runs offline with keyboard or controller input and locally saved progress. Windows and Raspberry Pi versions are available in the repository.',
-    dialogLink:'View Console CIEL on GitHub',
-    copied:'Password copied.',
-    copyError:'Copy unavailable. Select the password to copy it manually.',
-    meta:'its lizhy · Loghan — Computer science student and developer. Software, web and systems exploration.'
-  }
-};
+
+// Language and accessible labels.
 let language = 'fr';
 try { const saved = localStorage.getItem('lizhy-language'); if (Object.hasOwn(translations, saved)) language = saved; } catch { /* Storage can be disabled. */ }
 function setLanguage(next) {
@@ -193,32 +27,48 @@ function setLanguage(next) {
 document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
 setLanguage(language);
 
-// One scheduled update per frame; no scroll interception or scroll hijacking.
-const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-const hero = document.querySelector('.hero-scroll');
-const interlude = document.querySelector('.interlude');
-let frame = null;
-function progress(section) {
-  const bounds = section.getBoundingClientRect();
-  const distance = section.offsetHeight - window.innerHeight;
-  return distance > 0 ? Math.min(1, Math.max(0, -bounds.top / distance)) : 0;
-}
-function updateScene() {
-  frame = null;
-  if (motionPreference.matches) {
-    hero.style.setProperty('--hero-progress', 0);
-    interlude.style.setProperty('--interlude-progress', 0);
-    return;
+// Modern browsers animate directly from native CSS scroll timelines.
+// Older browsers use paused transform animations with cached scene geometry.
+if (!CSS.supports('animation-timeline: view()')) {
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const selectors = ['.hero-title-wrap,.chrome-orb,.floating-terminal,.profile-card', '.interlude-back,.interlude h2,.silver-loop'];
+  let scenes = [], frame = 0;
+  function renderScenes() {
+    frame = 0;
+    for (const scene of scenes) {
+      const progress = Math.max(0, Math.min(1, (scrollY - scene.top) / scene.distance));
+      if (progress === scene.progress) continue;
+      scene.progress = progress;
+      scene.animations.forEach(animation => animation.currentTime = progress * 1000);
+    }
   }
-  hero.style.setProperty('--hero-progress', progress(hero).toFixed(4));
-  interlude.style.setProperty('--interlude-progress', progress(interlude).toFixed(4));
+  function scheduleScenes() { if (!frame) frame = requestAnimationFrame(renderScenes); }
+  function refreshScenes() {
+    scenes.flatMap(scene => scene.animations).forEach(animation => animation.cancel());
+    scenes = reducedMotion.matches ? [] : [...document.querySelectorAll('.hero-scroll,.interlude')].map((section, index) => ({
+      top: section.getBoundingClientRect().top + scrollY,
+      distance: Math.max(1, section.offsetHeight - innerHeight),
+      animations: [...section.querySelectorAll(selectors[index])].map(element => {
+        const style = getComputedStyle(element);
+        const value = (name, fallback) => style.getPropertyValue(name).trim() || fallback;
+        const animation = element.animate([
+          { transform: `translate3d(0,0,0) rotate(${value('--start-angle','0deg')})` },
+          { transform: `translate3d(${value('--move-x','0px')},${value('--move-y','0px')},0) rotate(${value('--end-angle',value('--start-angle','0deg'))})` }
+        ], { duration:1000, fill:'both' });
+        animation.pause();
+        return animation;
+      })
+    }));
+    scheduleScenes();
+  }
+  addEventListener('scroll', scheduleScenes, { passive:true });
+  addEventListener('resize', refreshScenes);
+  reducedMotion.addEventListener('change', refreshScenes);
+  new ResizeObserver(refreshScenes).observe(document.body);
+  refreshScenes();
 }
-function scheduleScene() { if (frame === null) frame = requestAnimationFrame(updateScene); }
-window.addEventListener('scroll', scheduleScene, { passive:true });
-window.addEventListener('resize', scheduleScene);
-motionPreference.addEventListener('change', scheduleScene);
-scheduleScene();
 
+// Password generation and clipboard.
 const lengthInput = document.getElementById('password-length');
 const passwordOutput = document.getElementById('password-output');
 const generatorError = document.getElementById('generator-error');
@@ -288,6 +138,8 @@ document.getElementById('copy-password').addEventListener('click', async () => {
   try { await navigator.clipboard.writeText(passwordToCopy); toast('copied'); }
   catch { const selection=window.getSelection(); const range=document.createRange(); range.selectNodeContents(passwordOutput); selection.removeAllRanges(); selection.addRange(range); toast('copyError'); }
 });
+
+// Project details and CTF results.
 const dialog = document.getElementById('project-dialog');
 document.querySelector('[data-project="console"]').addEventListener('click', () => dialog.showModal());
 dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());

@@ -14,18 +14,20 @@ La page d’entrée est `index.html`. Aucun build ni paquet à installer. Le sit
 
 ```sh
 node --check script.js
+node --check translations.js
+node --check ctf-results.js
 ```
 
 ## Interface
 
 - Palette noir, blanc et argent ; effets translucides et volumes dessinés en CSS.
-- Scènes avec titres fixes, parallaxe et éléments superposés au défilement, sans bloquer le défilement natif.
+- Scènes avec titres fixes et superpositions : animations CSS liées au défilement natif (`view-timeline`) sur les navigateurs compatibles. Repli par transformations animées avec géométrie mise en cache sur les autres navigateurs. Aucun détournement de la molette ou du défilement tactile ; pas de flou d’arrière-plan coûteux sur les cartes.
 - Mise en page mobile et respect de `prefers-reduced-motion`.
 - Français et anglais, avec langue conservée localement si le navigateur le permet.
 - Carte de profil, projets Console CIEL et générateur de mots de passe, liens de contact.
 - Générateur intégré : 8 à 64 caractères, choix des majuscules/minuscules/chiffres/symboles, exclusion des caractères ambigus. Génération via Web Crypto avec échantillonnage par rejet et au moins un caractère de chaque catégorie choisie. Copie dans le presse-papier sur un contexte sécurisé (HTTPS ou serveur local). Aucun mot de passe enregistré ni envoyé.
 
-Les textes traduits et libellés d’accessibilité se trouvent dans `script.js`. La structure et les liens sont dans `index.html`, la mise en page dans `style.css`. La capture `assets/console-ciel.png` provient du [dépôt Console CIEL](https://github.com/loghanmrsn/Console-logiciel/blob/main/console-ciel/docs/screenshots/chapitre_3_0.7.0/home_three_chapters.png). Son affichage est désaturé pour cette direction graphique. Le générateur est utilisable directement dans la carte SecurePass du portfolio.
+Les textes traduits et libellés d’accessibilité se trouvent dans `translations.js`. `script.js` contient les interactions, le générateur et le rendu des résultats CTF. La structure et les liens sont dans `index.html`, la mise en page dans `style.css`. La capture `assets/console-ciel.png` provient du [dépôt Console CIEL](https://github.com/loghanmrsn/Console-logiciel/blob/main/console-ciel/docs/screenshots/chapitre_3_0.7.0/home_three_chapters.png). Son affichage est désaturé pour cette direction graphique. Le générateur est utilisable directement dans la carte SecurePass du portfolio.
 
 ## Résultats CTF
 
