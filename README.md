@@ -1,59 +1,32 @@
-# Portfolio Personnel - Étudiant en Cybersécurité 🛡️
+# its lizhy · Loghan
 
-Bienvenue sur le code source de mon portfolio personnel.
-Ce projet a pour but de présenter mes compétences, mon parcours scolaire en Bac Pro CIEL (Cybersécurité, Informatique et réseaux, Électronique) et mes projets de développement.
+Portfolio personnel en HTML, CSS et JavaScript, sans framework ni dépendance externe.
 
-🔗 **Voir le site en ligne :** [https://loghanmrsn.github.io/Portfolio/]
+## Développement
 
-## 🚀 À propos
-Je suis actuellement étudiant au Lycée Louise Michel (Ruffec) et passionné par l'informatique et la sécurité des systèmes. 
-J'ai conçu ce site de A à Z pour rechercher un stage et montrer ma capacité à créer des interfaces web modernes.
+Depuis le dossier du dépôt :
 
-**Objectif :** Trouver un stage en informatique / cybersécurité.
+```sh
+python3 -m http.server 8000 --bind 127.0.0.1
+```
 
-## 🛠️ Technologies utilisées
-Ce site est réalisé sans framework lourd, uniquement avec les standards du web pour une performance maximale :
-* **HTML5** : Structure sémantique de la page.
-* **CSS3** : Design responsive, Flexbox/Grid, et thème "Dark Mode" adapté à l'univers Cyber.
-* **JavaScript** : Animations (effet machine à écrire) et interactivité.
+La page d’entrée est `index.html`. Aucun build ni paquet à installer. Le site peut être hébergé directement sur GitHub Pages.
 
-## ✨ Fonctionnalités
-* 📱 **100% Responsive** : S'adapte aux ordinateurs, tablettes et mobiles.
-* 🌑 **Dark Theme** : Interface sombre style "néon" agréable pour les développeurs.
-* ⚡ **Animations légères** : Effet de frappe automatique sur la page d'accueil.
-* 📍 **Sections détaillées** : Accueil, À propos, Compétences (Python, Dart, Web), et Contact.
+```sh
+node --check script.js
+```
 
-## 📦 Comment lancer le projet localement ?
-Si vous souhaitez voir mon portfolio tourner sur votre machine :
+## Interface
 
-1.  Clonez le dépôt :
-    ```bash
-    git clone [https://loghanmrsn.github.io/Portfolio/](https://loghanmrsn.github.io/Portfolio/)
-    ```
-2.  Ouvrez le fichier `index.html` dans votre navigateur.
+- Palette noir, blanc et argent ; effets translucides et volumes dessinés en CSS.
+- Scènes avec titres fixes, parallaxe et éléments superposés au défilement, sans bloquer le défilement natif.
+- Mise en page mobile et respect de `prefers-reduced-motion`.
+- Français et anglais, avec langue conservée localement si le navigateur le permet.
+- Carte de profil, projets Console CIEL et générateur de mots de passe, liens de contact.
+- Démo locale du générateur : 8 à 32 caractères, aléatoire via Web Crypto, copie dans le presse-papier sur un contexte sécurisé (HTTPS ou serveur local). Aucun mot de passe enregistré ni envoyé.
 
+Les textes traduits et libellés d’accessibilité se trouvent dans `script.js`. La structure et les liens sont dans `index.html`, la mise en page dans `style.css`. La capture `assets/console-ciel.png` provient du [dépôt Console CIEL](https://github.com/loghanmrsn/Console-logiciel/blob/main/console-ciel/docs/screenshots/chapitre_3_0.7.0/home_three_chapters.png). Son affichage est désaturé pour cette direction graphique. Le générateur est une démo intégrée au portfolio.
 
-# 🔒 Générateur de Mots de Passe
+## Vérifications
 
-## 📋 Fonctionnalités
-
-* **Longueur personnalisable** : Choisissez la longueur exacte du mot de passe.
-* **Critères de sécurité** :
-    * ✅ Lettres majuscules
-    * ✅ Lettres minuscules
-    * ✅ Chiffres
-    * ✅ Caractères spéciaux (!@#$...)
-* **Bouton de copie** : Copiez le mot de passe généré dans le presse-papier en un clic.
-
-
-## 📬 Me contacter
-N'hésitez pas à explorer le code ou à me contacter pour une opportunité de stage !
-
-* **Email :** [moris.loghan@gmail.com](mailto:moris.loghan@gmail.com)
-* **GitHub :** [[Mon github](https://github.com/loghanmrsn)]
-
----
-*by loghan Morisson.*
-
----
-*N'hésitez pas à laisser une étoile ⭐ sur le repo si ce projet vous a été utile !*
+Valider le chargement de HTML/CSS/JS, les liens internes, les deux langues et leur persistance, la fenêtre de détails et sa fermeture au clavier, le générateur et la copie. Vérifier aussi le rendu sur mobile, le défilement et le mode mouvement réduit. La syntaxe JavaScript seule ne valide pas ces interactions.
