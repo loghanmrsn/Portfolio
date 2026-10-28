@@ -78,37 +78,6 @@ Portfolio/
 - **Liens et structure des sections** : `index.html`.
 - **Style et effets de profondeur** : `style.css`. Les navigateurs compatibles utilisent les timelines CSS ; les autres disposent d’un repli avec géométrie mise en cache dans `script.js`.
 
-### Ajouter des résultats de CTF
-
-Le tableau `ctfResults` dans `ctf-results.js` est vide pour le moment : le site affiche donc **« À venir »**.
-
-Ajoute tes participations réelles selon cette structure. Les valeurs ci-dessous sont uniquement un exemple :
-
-```js
-const ctfResults = [
-  {
-    event: 'Nom du CTF',
-    date: '2026-10-28',
-    rank: '12 / 200',
-    score: 450
-  }
-];
-```
-
-La date est facultative et utilise le format `YYYY-MM-DD`. Tu peux ajouter un champ `writeup` contenant l’URL HTTP/HTTPS de ton compte rendu. Les dates et les libellés s’adaptent à la langue choisie sur le site.
-
-## Vérifier une modification
-
-Avec Node.js :
-
-```sh
-node --check script.js
-node --check translations.js
-node --check ctf-results.js
-```
-
-Ces commandes vérifient la syntaxe. Dans le navigateur, vérifie aussi le rendu sur mobile et ordinateur, le changement de langue, les liens, le défilement, la navigation au clavier et le générateur de mots de passe.
-
 ## Me retrouver
 
 **[Instagram — @loghanmrsn](https://www.instagram.com/loghanmrsn/)** · **[GitHub — loghanmrsn](https://github.com/loghanmrsn)** · **[moris.loghan@gmail.com](mailto:moris.loghan@gmail.com)**
