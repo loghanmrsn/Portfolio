@@ -772,7 +772,7 @@ input[type=range] {
 .generate-button:hover {
   background:#444;
 }
-.demo-note {
+.generator-note {
   display:block;
   text-align:center;
   font:7px var(--mono);
@@ -1406,4 +1406,56 @@ dialog p {
 }
 @media (max-width: 700px) {
   .hero-title-wrap { top: 31%; }
+}
+
+/* Live password tool and future CTF results. */
+[hidden] { display: none !important; }
+.password-art { height: auto; min-height: 510px; padding: 35px 20px; }
+.password-art .password-preview, .password-project:hover .password-preview {
+  transform: none; width: 100%; max-width: 390px; padding: 25px;
+}
+.password-preview h4 { font-size: 14px; margin: 0; }
+.password-preview-header .micro { font-size: 8px; }
+.password-output-row { min-height: 62px; }
+.password-output-row output { white-space: normal; overflow-wrap: anywhere; word-break: break-all; min-width: 0; line-height: 1.6; }
+.password-output-row button { min-width: 32px; min-height: 32px; }
+.password-range-label { font-size: 11px; }
+.password-options { border: 0; padding: 0; margin: 10px 0 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.password-options legend { padding: 0 0 12px; font-size: 11px; }
+.password-options label { display: flex; align-items: center; gap: 6px; font-size: 11px; min-height: 30px; cursor: pointer; }
+.password-options input, .exclude-option input { accent-color: #222; width: 15px; height: 15px; flex-shrink: 0; margin: 0; }
+.option-sample { font: 8px var(--mono); color: #666; margin-left: auto; }
+.exclude-option { display: flex; align-items: flex-start; gap: 8px; font-size: 10px; line-height: 1.6; margin: 8px 0 20px; cursor: pointer; }
+.generate-button { font-size: 11px; min-height: 42px; }
+.generator-note { font-size: 9px; line-height: 1.6; }
+.generator-error { font-size: 11px; line-height: 1.7; color: #6b2020; margin: 0 0 12px; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+.results { background: #141414; position: relative; z-index: 9; }
+.results-heading { display: grid; grid-template-columns: 1.2fr 1fr; gap: 10%; align-items: center; margin: 55px 0 40px; }
+.results h2 { font-size: clamp(40px, 5vw, 78px); font-weight: 400; letter-spacing: -.055em; line-height: 1.1; }
+.results h2 em { color: #aaa9a0; }
+.results-heading > p { color: #999; font-size: 13px; line-height: 1.9; max-width: 410px; }
+.ctf-empty { display: flex; align-items: center; gap: 45px; padding: 45px; border: 1px solid var(--line); background: linear-gradient(130deg,#ffffff06,transparent); }
+.ctf-mark { font: 45px var(--mono); color: #777; white-space: nowrap; }
+.ctf-empty .micro { color: #888; }
+.ctf-empty h3 { font-size: 24px; font-weight: 400; letter-spacing: -.035em; margin: 12px 0; }
+.ctf-empty p { color: #999; font-size: 12px; line-height: 1.8; }
+.ctf-table-wrap { overflow-x: auto; border: 1px solid var(--line); }
+.ctf-table-wrap table { width: 100%; border-collapse: collapse; text-align: left; min-width: 620px; }
+.ctf-table-wrap th { font: 10px var(--mono); color: #999; }
+.ctf-table-wrap th, .ctf-table-wrap td { padding: 22px; border-bottom: 1px solid var(--line); }
+.ctf-table-wrap td { font-size: 13px; }
+.ctf-table-wrap a { text-decoration: underline; text-underline-offset: 5px; }
+.contact-links { gap: 30px; flex-wrap: wrap; }
+@media (max-width: 700px) {
+  nav { gap: 13px; }
+  .password-art { padding: 25px 15px; }
+  .password-art .password-preview { padding: 20px; }
+  .password-options { gap: 8px 10px; }
+  .option-sample { display: none; }
+  .results-heading { grid-template-columns: 1fr; gap: 25px; margin-top: 40px; }
+  .ctf-empty { align-items: flex-start; flex-direction: column; padding: 28px; gap: 22px; }
+  .ctf-mark { font-size: 32px; }
+  .ctf-empty h3 { font-size: 23px; }
+  .contact-links a { gap: 8px; }
 }

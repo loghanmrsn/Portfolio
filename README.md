@@ -23,9 +23,13 @@ node --check script.js
 - Mise en page mobile et respect de `prefers-reduced-motion`.
 - Français et anglais, avec langue conservée localement si le navigateur le permet.
 - Carte de profil, projets Console CIEL et générateur de mots de passe, liens de contact.
-- Démo locale du générateur : 8 à 32 caractères, aléatoire via Web Crypto, copie dans le presse-papier sur un contexte sécurisé (HTTPS ou serveur local). Aucun mot de passe enregistré ni envoyé.
+- Générateur intégré : 8 à 64 caractères, choix des majuscules/minuscules/chiffres/symboles, exclusion des caractères ambigus. Génération via Web Crypto avec échantillonnage par rejet et au moins un caractère de chaque catégorie choisie. Copie dans le presse-papier sur un contexte sécurisé (HTTPS ou serveur local). Aucun mot de passe enregistré ni envoyé.
 
-Les textes traduits et libellés d’accessibilité se trouvent dans `script.js`. La structure et les liens sont dans `index.html`, la mise en page dans `style.css`. La capture `assets/console-ciel.png` provient du [dépôt Console CIEL](https://github.com/loghanmrsn/Console-logiciel/blob/main/console-ciel/docs/screenshots/chapitre_3_0.7.0/home_three_chapters.png). Son affichage est désaturé pour cette direction graphique. Le générateur est une démo intégrée au portfolio.
+Les textes traduits et libellés d’accessibilité se trouvent dans `script.js`. La structure et les liens sont dans `index.html`, la mise en page dans `style.css`. La capture `assets/console-ciel.png` provient du [dépôt Console CIEL](https://github.com/loghanmrsn/Console-logiciel/blob/main/console-ciel/docs/screenshots/chapitre_3_0.7.0/home_three_chapters.png). Son affichage est désaturé pour cette direction graphique. Le générateur est utilisable directement dans la carte SecurePass du portfolio.
+
+## Résultats CTF
+
+Ajouter les résultats vérifiés dans le tableau `ctfResults` de `ctf-results.js` avec les champs `event`, `date` (format `YYYY-MM-DD`), `rank`, `score` et éventuellement `writeup` (URL HTTP/HTTPS). Les dates et comptes rendus sont facultatifs. Laisser le tableau vide affiche « à venir » sans inventer de participation. La présentation et les dates suivent la langue FR/EN. Les données sont affichées comme texte.
 
 ## Vérifications
 
