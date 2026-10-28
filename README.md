@@ -1,16 +1,105 @@
-# its lizhy · Loghan
+<div align="center">
 
-Portfolio personnel en HTML, CSS et JavaScript, sans framework ni dépendance externe.
+# its lizhy · _Loghan_
 
-## Développement
+**Développer. Explorer. Apprendre.**
 
-Depuis le dossier du dépôt :
+Mon portfolio personnel : mes projets, mon univers et mon parcours en informatique.
+Une interface noir, blanc et argent, avec de la transparence et des effets de profondeur au défilement.
+
+### [↗ Découvrir le portfolio en ligne](https://loghanmrsn.github.io/Portfolio/)
+
+**[Projets](https://loghanmrsn.github.io/Portfolio/#projects)** · **[CTF & résultats](https://loghanmrsn.github.io/Portfolio/#results)** · **[Contact](https://loghanmrsn.github.io/Portfolio/#contact)**
+
+HTML · CSS · JavaScript &nbsp; / &nbsp; Français & English &nbsp; / &nbsp; GitHub Pages
+
+</div>
+
+---
+
+## Derrière l’écran
+
+Moi, c’est **Loghan, 17 ans**. À l’écran, c’est **its lizhy**.
+Étudiant en informatique, j’apprends en créant des logiciels, des expériences web et des projets autour des systèmes et de la cybersécurité.
+
+Ce dépôt contient le code du portfolio, conçu sans framework, sans dépendance externe et sans étape de compilation.
+
+## Ce qu’on y trouve
+
+- **Une identité visuelle monochrome** : volumes argentés, cartes translucides et typographie contrastée.
+- **Un défilement en profondeur** : titres fixes et éléments qui passent devant ou derrière les autres, avec des animations liées au scroll natif.
+- **Deux langues** : français et anglais, avec mémorisation du choix dans le navigateur.
+- **Une interface adaptée au mobile** et un mode qui respecte la préférence de réduction des animations.
+- **Les projets et les réseaux**, avec une section dédiée aux futurs résultats de CTF.
+- **Un générateur de mots de passe utilisable directement sur le site**.
+
+## Les projets
+
+| Projet | Présentation | Découvrir |
+| --- | --- | --- |
+| **Console CIEL** | Une enquête éducative et une bibliothèque de jeux développées avec Godot. Des défis de code, de réseau et de cybersécurité, jouables hors ligne au clavier ou à la manette. | [Dépôt GitHub](https://github.com/loghanmrsn/Console-logiciel) |
+| **SecurePass** | Un générateur de mots de passe personnalisables, intégré au portfolio. | [Utiliser le générateur](https://loghanmrsn.github.io/Portfolio/#password-generator) |
+
+### SecurePass
+
+Choisis une longueur de **8 à 64 caractères**, les catégories à inclure — majuscules, minuscules, chiffres et symboles — et, si besoin, l’exclusion des caractères ambigus.
+
+La génération utilise **Web Crypto**, avec au moins un caractère de chaque catégorie sélectionnée. Tout se passe sur ton appareil : aucun mot de passe n’est enregistré ni envoyé. La copie dans le presse-papier fonctionne en HTTPS ou sur un serveur local ; si elle est indisponible, la sélection manuelle reste possible.
+
+## Lancer le portfolio en local
+
+**Prérequis :** Python 3 pour le serveur local. Node.js est facultatif, pour vérifier la syntaxe JavaScript.
 
 ```sh
+git clone https://github.com/loghanmrsn/Portfolio.git
+cd Portfolio
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-La page d’entrée est `index.html`. Aucun build ni paquet à installer. Le site peut être hébergé directement sur GitHub Pages.
+Ouvre ensuite `http://127.0.0.1:8000` dans ton navigateur. Si le dépôt est déjà cloné, lance simplement la dernière commande depuis son dossier.
+
+Aucun `npm install` ni build n’est nécessaire. Les fichiers statiques sont publiés sur **GitHub Pages** à partir de la branche `main`.
+
+## Se repérer dans le code
+
+```text
+Portfolio/
+├── index.html          # Structure, sections et liens
+├── style.css           # Mise en page, thème et animations
+├── script.js           # Interactions, générateur et affichage des CTF
+├── translations.js     # Textes et libellés d’accessibilité FR / EN
+├── ctf-results.js      # Résultats des compétitions à renseigner
+└── assets/             # Images des projets
+```
+
+### Modifier les contenus
+
+- **Textes et traductions** : `translations.js`. Pour le texte visible avant le chargement de JavaScript, garde aussi `index.html` cohérent.
+- **Liens et structure des sections** : `index.html`.
+- **Style et effets de profondeur** : `style.css`. Les navigateurs compatibles utilisent les timelines CSS ; les autres disposent d’un repli avec géométrie mise en cache dans `script.js`.
+
+### Ajouter des résultats de CTF
+
+Le tableau `ctfResults` dans `ctf-results.js` est vide pour le moment : le site affiche donc **« À venir »**.
+
+Ajoute tes participations réelles selon cette structure. Les valeurs ci-dessous sont uniquement un exemple :
+
+```js
+const ctfResults = [
+  {
+    event: 'Nom du CTF',
+    date: '2026-10-28',
+    rank: '12 / 200',
+    score: 450
+  }
+];
+```
+
+La date est facultative et utilise le format `YYYY-MM-DD`. Tu peux ajouter un champ `writeup` contenant l’URL HTTP/HTTPS de ton compte rendu. Les dates et les libellés s’adaptent à la langue choisie sur le site.
+
+## Vérifier une modification
+
+Avec Node.js :
 
 ```sh
 node --check script.js
@@ -18,21 +107,12 @@ node --check translations.js
 node --check ctf-results.js
 ```
 
-## Interface
+Ces commandes vérifient la syntaxe. Dans le navigateur, vérifie aussi le rendu sur mobile et ordinateur, le changement de langue, les liens, le défilement, la navigation au clavier et le générateur de mots de passe.
 
-- Palette noir, blanc et argent ; effets translucides et volumes dessinés en CSS.
-- Scènes avec titres fixes et superpositions : animations CSS liées au défilement natif (`view-timeline`) sur les navigateurs compatibles. Repli par transformations animées avec géométrie mise en cache sur les autres navigateurs. Aucun détournement de la molette ou du défilement tactile ; pas de flou d’arrière-plan coûteux sur les cartes.
-- Mise en page mobile et respect de `prefers-reduced-motion`.
-- Français et anglais, avec langue conservée localement si le navigateur le permet.
-- Carte de profil, projets Console CIEL et générateur de mots de passe, liens de contact.
-- Générateur intégré : 8 à 64 caractères, choix des majuscules/minuscules/chiffres/symboles, exclusion des caractères ambigus. Génération via Web Crypto avec échantillonnage par rejet et au moins un caractère de chaque catégorie choisie. Copie dans le presse-papier sur un contexte sécurisé (HTTPS ou serveur local). Aucun mot de passe enregistré ni envoyé.
+## Me retrouver
 
-Les textes traduits et libellés d’accessibilité se trouvent dans `translations.js`. `script.js` contient les interactions, le générateur et le rendu des résultats CTF. La structure et les liens sont dans `index.html`, la mise en page dans `style.css`. La capture `assets/console-ciel.png` provient du [dépôt Console CIEL](https://github.com/loghanmrsn/Console-logiciel/blob/main/console-ciel/docs/screenshots/chapitre_3_0.7.0/home_three_chapters.png). Son affichage est désaturé pour cette direction graphique. Le générateur est utilisable directement dans la carte SecurePass du portfolio.
+**[Instagram — @loghanmrsn](https://www.instagram.com/loghanmrsn/)** · **[GitHub — loghanmrsn](https://github.com/loghanmrsn)** · **[moris.loghan@gmail.com](mailto:moris.loghan@gmail.com)**
 
-## Résultats CTF
+---
 
-Ajouter les résultats vérifiés dans le tableau `ctfResults` de `ctf-results.js` avec les champs `event`, `date` (format `YYYY-MM-DD`), `rank`, `score` et éventuellement `writeup` (URL HTTP/HTTPS). Les dates et comptes rendus sont facultatifs. Laisser le tableau vide affiche « à venir » sans inventer de participation. La présentation et les dates suivent la langue FR/EN. Les données sont affichées comme texte.
-
-## Vérifications
-
-Valider le chargement de HTML/CSS/JS, les liens internes, les deux langues et leur persistance, la fenêtre de détails et sa fermeture au clavier, le générateur et la copie. Vérifier aussi le rendu sur mobile, le défilement et le mode mouvement réduit. La syntaxe JavaScript seule ne valide pas ces interactions.
+La capture de Console CIEL utilisée dans le portfolio provient de [son dépôt](https://github.com/loghanmrsn/Console-logiciel/blob/main/console-ciel/docs/screenshots/chapitre_3_0.7.0/home_three_chapters.png). Elle est affichée en niveaux de gris pour rester dans la direction visuelle du site.
