@@ -135,8 +135,18 @@ function toast(key) {
 document.getElementById('copy-password').addEventListener('click', async () => {
   if (!passwordOutput.value) return;
   const passwordToCopy = passwordOutput.value;
-  try { await navigator.clipboard.writeText(passwordToCopy); toast('copied'); }
-  catch { const selection=window.getSelection(); const range=document.createRange(); range.selectNodeContents(passwordOutput); selection.removeAllRanges(); selection.addRange(range); toast('copyError'); }
+  let copied = false;
+  try { await navigator.clipboard.writeText(passwordToCopy); copied = true; }
+  catch { /* Select the current password below only if it is still the copied one. */ }
+  if (passwordOutput.value !== passwordToCopy) return;
+  if (!copied) {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(passwordOutput);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+  toast(copied ? 'copied' : 'copyError');
 });
 
 // Project details and CTF results.
